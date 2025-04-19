@@ -8,13 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       background-color: #000;
       color: #ffffff;
       font-family: 'Courier New', monospace;
       overflow-x: hidden;
+      scroll-behavior: smooth;
       animation: flicker 1.5s infinite alternate;
       position: relative;
     }
@@ -128,6 +129,18 @@
       animation: fadeInOut 5s ease-in-out forwards;
     }
 
+    .scroll-indicator {
+      margin-top: 3rem;
+      font-size: 1.5rem;
+      color: magenta;
+      animation: blinkScroll 1.2s infinite;
+    }
+
+    @keyframes blinkScroll {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
     img {
       max-width: 90%;
       height: auto;
@@ -142,6 +155,53 @@
     <p class="boot-up">Loading: HTPU Ops Brief v1.0</p>
     <p class="boot-up">Initializing nodes █ █ █ █ █ █</p>
     <p class="boot-up">Success. Terminal ready.</p>
+    <div class="scroll-indicator">▼ scroll</div>
+  </div>
+
+  <div class="slide">
+    <p class="typewriter-trigger ibm" data-typewriter="6s">Trump doesn't follow the code.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="6s">He rewrites it.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="6s">Tweets as triggers.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="6s">Reactions as script.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="6s">Repetition as control.</p>
+  </div>
+
+  <div class="slide">
+    <p class="typewriter-trigger ibm" data-typewriter="7s">QAnon wasn’t just fringe conspiracy.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">It was gameplay.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">Clues. Players. Lore.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">Watching became decoding.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">Followers became performers.</p>
+  </div>
+
+  <div class="slide">
+    <p class="typewriter-trigger ibm" data-typewriter="5s">1. Trigger</p>
+    <p class="typewriter-trigger ibm" data-typewriter="5s">2. Reaction</p>
+    <p class="typewriter-trigger ibm" data-typewriter="5s">3. Reward</p>
+    <p class="typewriter-trigger ibm" data-typewriter="5s">The loop resets.</p>
+  </div>
+
+  <div class="slide">
+    <p class="typewriter-trigger ibm" data-typewriter="5s">From message → mechanics.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="5s">From truth → trigger.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="5s">From analysis → arousal.</p>
+  </div>
+
+  <div class="slide">
+    <p class="typewriter-trigger ibm" data-typewriter="7s">This isn’t accidental.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">Media doesn’t reflect. It loops.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">Trump knows its rhythm.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">Knows how to warp it.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">Bend it.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">Break it.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">So he rewrote the playbook.</p>
+    <p class="typewriter-trigger ibm" data-typewriter="7s">This is your map.</p>
+  </div>
+
+  <div class="slide">
+    <p class="ibm">TRANSMISSION ENDED</p>
+    <p class="ibm">Disengaging nodes █ █ █ █ █ █</p>
+    <p class="ibm">System offline.</p>
   </div>
 
   <script>
