@@ -63,11 +63,13 @@
 
     h1, h2, h3, p {
       margin: 0.5rem 0;
+      font-family: 'Courier New', monospace;
+      color: #ffffff;
     }
 
     .ibm {
-      font-family: 'IBM Plex Mono', monospace;
-      color: #00ffcc;
+      font-family: 'IBM Plex Mono', monospace !important;
+      color: #00ffcc !important;
       text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
     }
 
@@ -94,41 +96,6 @@
       50% { border-color: magenta; }
     }
 
-    .fade-in-out {
-      opacity: 0;
-      animation: fadeInOut 7s ease-in-out forwards;
-    }
-    .fade-in-out-6s {
-      opacity: 0;
-      animation: fadeInOut6s 6s ease-in-out forwards;
-    }
-
-    @keyframes fadeInOut {
-      0% { opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-    @keyframes fadeInOut6s {
-      0% { opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; }
-    }
-
-    .boot-up {
-      font-size: 1.2rem;
-      color: #00ffcc;
-      font-family: 'IBM Plex Mono', monospace;
-      animation: typing 4s steps(40, end), blink .75s step-end infinite;
-    }
-
-    .shutdown {
-      font-size: 1.2rem;
-      color: #ff0080;
-      animation: fadeInOut 5s ease-in-out forwards;
-    }
-
     .scroll-indicator {
       margin-top: 3rem;
       font-size: 1.5rem;
@@ -141,6 +108,19 @@
       50% { opacity: 1; }
     }
 
+    .glitch {
+      animation: glitch 0.3s ease-in-out 1;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-5px, 2px); }
+      40% { transform: translate(5px, -2px); }
+      60% { transform: translate(-5px, 1px); }
+      80% { transform: translate(3px, -1px); }
+      100% { transform: translate(0); }
+    }
+
     img {
       max-width: 90%;
       height: auto;
@@ -150,7 +130,10 @@
   </style>
 </head>
 <body>
-  <div class="slide">
+  <audio id="boot-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-game-show-positive-sound-222.wav"></audio>
+  <audio id="shutdown-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-game-notification-212.wav"></audio>
+
+  <div class="slide" id="intro-slide">
     <h2 class="ibm">OPERATION: HTPU // FILE 01</h2>
     <h3 class="ibm">CLASSIFIED BRIEFING – LEVEL: UNSECURED</h3>
     <h1 class="typewriter-trigger ibm" data-typewriter="6s">THIS IS NOT A BOOK LAUNCH.</h1>
@@ -158,6 +141,7 @@
     <p class="ibm">Node: HTPU-001</p>
     <p class="ibm">—M.</p>
     <div class="scroll-indicator">▼ scroll</div>
+  </div>
 
   <div class="slide fade-in-out-6s">
     <p>What if you couldn’t tell what was real anymore?</p>
