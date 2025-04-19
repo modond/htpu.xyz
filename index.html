@@ -12,10 +12,45 @@
       margin: 0;
       padding: 0;
       background-color: #000;
-      color: #fff;
-      font-family: 'Courier New', monospace;
+      color: #00ffcc;
+      font-family: 'IBM Plex Mono', monospace;
       overflow-x: hidden;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+      animation: flicker 1.5s infinite alternate;
+      position: relative;
     }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 204, 0.05),
+        rgba(0, 255, 204, 0.05) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      z-index: 1;
+      mix-blend-mode: overlay;
+      animation: scanlines 0.2s infinite linear;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.85; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes scanlines {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 2px; }
+    }
+
     .slide {
       min-height: 100vh;
       display: flex;
@@ -25,11 +60,12 @@
       text-align: center;
       padding: 2rem;
     }
+
     h1, h2, h3, p {
-      font-family: 'IBM Plex Mono', monospace;
-      color: #00bfff;
       margin: 0.5rem 0;
+      color: #00ffcc;
     }
+
     .typewriter {
       overflow: hidden;
       white-space: nowrap;
@@ -37,23 +73,25 @@
       animation: typing 2s steps(40, end), blink .75s step-end infinite;
     }
     .typewriter-5s {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: .15em solid magenta;
       animation: typing 5s steps(40, end), blink .75s step-end infinite;
     }
     .typewriter-6s {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: .15em solid magenta;
       animation: typing 6s steps(40, end), blink .75s step-end infinite;
     }
     .typewriter-7s {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: .15em solid magenta;
       animation: typing 7s steps(40, end), blink .75s step-end infinite;
     }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent }
+      50% { border-color: magenta; }
+    }
+
     .fade-in-out {
       opacity: 0;
       animation: fadeInOut 7s ease-in-out forwards;
@@ -62,14 +100,7 @@
       opacity: 0;
       animation: fadeInOut6s 6s ease-in-out forwards;
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink {
-      0%, 100% { border-color: transparent }
-      50% { border-color: magenta; }
-    }
+
     @keyframes fadeInOut {
       0% { opacity: 0; }
       20% { opacity: 1; }
@@ -82,6 +113,19 @@
       80% { opacity: 1; }
       100% { opacity: 0; }
     }
+
+    .boot-up {
+      font-size: 1.2rem;
+      color: #00ffcc;
+      animation: typing 4s steps(40, end), blink .75s step-end infinite;
+    }
+
+    .shutdown {
+      font-size: 1.2rem;
+      color: #ff0080;
+      animation: fadeInOut 5s ease-in-out forwards;
+    }
+
     img {
       max-width: 90%;
       height: auto;
@@ -91,7 +135,13 @@
   </style>
 </head>
 <body>
-<!-- Content added for functioning website -->
+  <div class="slide boot-up">
+    <p>BOOTING SYSTEM...</p>
+    <p>Loading: HTPU Ops Brief v1.0</p>
+    <p>Initializing nodes █ █ █ █ █ █</p>
+    <p>Success. Terminal ready.</p>
+  </div>
+
   <div class="slide">
     <h2>OPERATION: HTPU // FILE 01</h2>
     <h3>CLASSIFIED BRIEFING – LEVEL: UNSECURED</h3>
@@ -101,7 +151,7 @@
     <p>—M.</p>
   </div>
 
-  <div class="slide fadeInOut6s">
+  <div class="slide fade-in-out-6s">
     <p>What if you couldn’t tell what was real anymore?</p>
     <p>Gaza as luxury resort.</p>
     <p>Canada quietly annexed.</p>
@@ -113,9 +163,9 @@
   <div class="slide typewriter-7s">
     <p>This isn’t accidental.</p>
     <p>Media doesn’t reflect. It loops.</p>
-    <p>Trump knows it's rythm.</p>
-    <p>Knows how to warp it. 
-    <p>Bend it.</p> 
+    <p>Trump knows its rhythm.</p>
+    <p>Knows how to warp it.</p>
+    <p>Bend it.</p>
     <p>Break it.</p>
     <p>So he rewrote the playbook.</p>
     <p>This is your map.</p>
@@ -167,7 +217,7 @@
     <p>Truth is optional.</p>
     <p>Disinformation is necessary.</p>
   </div>
-    
+
   <div class="slide typewriter-7s">
     <p>It spreads fast.</p>
     <p>Campaigns. Corporates. Crises.</p>
@@ -182,13 +232,19 @@
   </div>
 
   <div class="slide">
-    <p>You’re not a sleep.</p>
+    <p>You’re not asleep.</p>
     <p>You’ve noticed the loop.</p>
     <p>You’ve seen the score.</p>
     <p>Now, want to see all of this game's structure?</p>
-    <p>Sign up for the next drop! </p>
+    <p>Sign up for the next drop!</p>
     <a href="#" style="color: magenta; font-weight: bold; text-decoration: underline;">Access: hptu.xyz</a>
     <p>—M.</p>
+  </div>
+
+  <div class="slide shutdown">
+    <p>TRANSMISSION ENDED</p>
+    <p>Disengaging nodes █ █ █ █ █ █</p>
+    <p>System offline.</p>
   </div>
 </body>
 </html>
