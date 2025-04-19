@@ -75,6 +75,7 @@
       white-space: nowrap;
       border-right: .15em solid magenta;
       opacity: 0;
+      display: inline-block;
     }
 
     .typewriter-2s { animation: typing 2s steps(40, end) forwards, blink .75s step-end infinite; }
@@ -136,30 +137,36 @@
   </style>
 </head>
 <body>
+  <div class="slide">
+    <p class="boot-up">BOOTING SYSTEM...</p>
+    <p class="boot-up">Loading: HTPU Ops Brief v1.0</p>
+    <p class="boot-up">Initializing nodes █ █ █ █ █ █</p>
+    <p class="boot-up">Success. Terminal ready.</p>
+  </div>
 
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const lines = entry.target.querySelectorAll('.typewriter-trigger');
-        lines.forEach((el, index) => {
-          const speed = el.dataset.typewriter;
-          el.style.animationDelay = `${index * 0.5}s`;
-          el.classList.add(`typewriter-${speed}`);
-        });
-        observer.unobserve(entry.target);
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const lines = entry.target.querySelectorAll('.typewriter-trigger');
+          lines.forEach((el, index) => {
+            const speed = el.dataset.typewriter;
+            el.style.animationDelay = `${index * 0.6}s`;
+            el.style.opacity = 1;
+            el.classList.add(`typewriter-${speed}`);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.6
+    });
+
+    document.querySelectorAll('.slide').forEach(slide => {
+      if (slide.querySelector('.typewriter-trigger')) {
+        observer.observe(slide);
       }
     });
-  }, {
-    threshold: 0.6
-  });
-
-  document.querySelectorAll('.slide').forEach(slide => {
-    if (slide.querySelector('.typewriter-trigger')) {
-      observer.observe(slide);
-    }
-  });
-</script>
-
+  </script>
 </body>
 </html>
