@@ -65,6 +65,8 @@
       margin: 0.5rem 0;
       font-family: 'Courier New', monospace;
       color: #ffffff;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
     }
 
     .ibm {
@@ -73,27 +75,8 @@
       text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
     }
 
-    .typewriter-trigger {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: .15em solid magenta;
-      opacity: 0;
-      display: inline-block;
-    }
-
-    .typewriter-2s { animation: typing 2s steps(40, end) forwards, blink .75s step-end infinite; }
-    .typewriter-5s { animation: typing 5s steps(40, end) forwards, blink .75s step-end infinite; }
-    .typewriter-6s { animation: typing 6s steps(40, end) forwards, blink .75s step-end infinite; }
-    .typewriter-7s { animation: typing 7s steps(40, end) forwards, blink .75s step-end infinite; }
-
-    @keyframes typing {
-      from { width: 0; opacity: 1; }
-      to { width: 100%; opacity: 1; }
-    }
-
-    @keyframes blink {
-      0%, 100% { border-color: transparent }
-      50% { border-color: magenta; }
+    .visible {
+      opacity: 1;
     }
 
     .scroll-indicator {
@@ -136,14 +119,14 @@
   <div class="slide" id="intro-slide">
     <h2 class="ibm">OPERATION: HTPU // FILE 01</h2>
     <h3 class="ibm">CLASSIFIED BRIEFING – LEVEL: UNSECURED</h3>
-    <h1 class="typewriter-trigger" data-typewriter="6s">THIS IS NOT A BOOK LAUNCH.</h1>
+    <h1 class="ibm">THIS IS NOT A BOOK LAUNCH.</h1>
     <p class="ibm">Generated: 2025-04-01T04:21Z</p>
     <p class="ibm">Node: HTPU-001</p>
     <p class="ibm">—M.</p>
     <div class="scroll-indicator">▼ scroll</div>
   </div>
 
-  <div class="slide fade-in-out-6s">
+  <div class="slide">
     <p>What if you couldn’t tell what was real anymore?</p>
     <p>Gaza as luxury resort.</p>
     <p>Canada quietly annexed.</p>
@@ -153,14 +136,14 @@
   </div>
 
   <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="7s">This isn’t accidental.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Media doesn’t reflect. It loops.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Trump knows its rhythm.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Knows how to warp it.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Bend it.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Break it.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">So he rewrote the playbook.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">This is your map.</p>
+    <p>This isn’t accidental.</p>
+    <p>Media doesn’t reflect. It loops.</p>
+    <p>Trump knows its rhythm.</p>
+    <p>Knows how to warp it.</p>
+    <p>Bend it.</p>
+    <p>Break it.</p>
+    <p>So he rewrote the playbook.</p>
+    <p>This is your map.</p>
   </div>
 
   <div class="slide">
@@ -233,34 +216,25 @@
     <p>—M.</p>
   </div>
   
-   <div class="slide" id="end-slide">
+  <div class="slide" id="end-slide">
     <p class="ibm glitch">TRANSMISSION ENDED</p>
     <p class="ibm glitch">Disengaging nodes █ █ █ █ █ █</p>
     <p class="ibm glitch">System offline.</p>
   </div>
 
   <script>
-    const observer = new IntersectionObserver(entries => {
+    const fadeObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const lines = entry.target.querySelectorAll('.typewriter-trigger');
-          lines.forEach((el, index) => {
-            const speed = el.dataset.typewriter;
-            el.style.animationDelay = `${index * 0.6}s`;
-            el.style.opacity = 1;
-            el.classList.add(`typewriter-${speed}`);
+          entry.target.querySelectorAll('p, h1, h2, h3').forEach(el => {
+            el.classList.add('visible');
           });
-          observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.6
-    });
+    }, { threshold: 0.3 });
 
     document.querySelectorAll('.slide').forEach(slide => {
-      if (slide.querySelector('.typewriter-trigger')) {
-        observer.observe(slide);
-      }
+      fadeObserver.observe(slide);
     });
 
     window.addEventListener('DOMContentLoaded', () => {
