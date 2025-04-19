@@ -232,9 +232,12 @@
     <a href="#" style="color: magenta; font-weight: bold; text-decoration: underline;">Access: hptu.xyz</a>
     <p>—M.</p>
   </div>
-
-
-  <!-- slides volgen hieronder -->
+  
+   <div class="slide" id="end-slide">
+    <p class="ibm glitch">TRANSMISSION ENDED</p>
+    <p class="ibm glitch">Disengaging nodes █ █ █ █ █ █</p>
+    <p class="ibm glitch">System offline.</p>
+  </div>
 
   <script>
     const observer = new IntersectionObserver(entries => {
@@ -259,6 +262,25 @@
         observer.observe(slide);
       }
     });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const bootSound = document.getElementById('boot-sound');
+      if (bootSound) bootSound.play().catch(() => {});
+    });
+
+    const endSlide = document.getElementById('end-slide');
+    if (endSlide) {
+      const endObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const shutdownSound = document.getElementById('shutdown-sound');
+            if (shutdownSound) shutdownSound.play().catch(() => {});
+            entry.target.classList.add('glitch');
+          }
+        });
+      }, { threshold: 0.6 });
+      endObserver.observe(endSlide);
+    }
   </script>
 </body>
 </html>
