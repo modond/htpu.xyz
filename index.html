@@ -12,10 +12,9 @@
       margin: 0;
       padding: 0;
       background-color: #000;
-      color: #00ffcc;
-      font-family: 'IBM Plex Mono', monospace;
+      color: #ffffff;
+      font-family: 'Courier New', monospace;
       overflow-x: hidden;
-      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
       animation: flicker 1.5s infinite alternate;
       position: relative;
     }
@@ -63,31 +62,29 @@
 
     h1, h2, h3, p {
       margin: 0.5rem 0;
+    }
+
+    .ibm {
+      font-family: 'IBM Plex Mono', monospace;
       color: #00ffcc;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
     }
 
     .typewriter-trigger {
       overflow: hidden;
       white-space: nowrap;
       border-right: .15em solid magenta;
+      opacity: 0;
     }
 
-    .typewriter-2s {
-      animation: typing 2s steps(40, end), blink .75s step-end infinite;
-    }
-    .typewriter-5s {
-      animation: typing 5s steps(40, end), blink .75s step-end infinite;
-    }
-    .typewriter-6s {
-      animation: typing 6s steps(40, end), blink .75s step-end infinite;
-    }
-    .typewriter-7s {
-      animation: typing 7s steps(40, end), blink .75s step-end infinite;
-    }
+    .typewriter-2s { animation: typing 2s steps(40, end) forwards, blink .75s step-end infinite; }
+    .typewriter-5s { animation: typing 5s steps(40, end) forwards, blink .75s step-end infinite; }
+    .typewriter-6s { animation: typing 6s steps(40, end) forwards, blink .75s step-end infinite; }
+    .typewriter-7s { animation: typing 7s steps(40, end) forwards, blink .75s step-end infinite; }
 
     @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
+      from { width: 0; opacity: 1; }
+      to { width: 100%; opacity: 1; }
     }
 
     @keyframes blink {
@@ -120,6 +117,7 @@
     .boot-up {
       font-size: 1.2rem;
       color: #00ffcc;
+      font-family: 'IBM Plex Mono', monospace;
       animation: typing 4s steps(40, end), blink .75s step-end infinite;
     }
 
@@ -138,135 +136,30 @@
   </style>
 </head>
 <body>
-  <div class="slide boot-up">
-    <p>BOOTING SYSTEM...</p>
-    <p>Loading: HTPU Ops Brief v1.0</p>
-    <p>Initializing nodes █ █ █ █ █ █</p>
-    <p>Success. Terminal ready.</p>
-  </div>
 
-  <div class="slide">
-    <h2>OPERATION: HTPU // FILE 01</h2>
-    <h3>CLASSIFIED BRIEFING – LEVEL: UNSECURED</h3>
-    <h1 class="typewriter-trigger" data-typewriter="2s">THIS IS NOT A BOOK LAUNCH.</h1>
-    <p>Generated: 2025-04-01T04:21Z</p>
-    <p>Node: HTPU-001</p>
-    <p>—M.</p>
-  </div>
-
-  <div class="slide fade-in-out-6s">
-    <p>What if you couldn’t tell what was real anymore?</p>
-    <p>Gaza as luxury resort.</p>
-    <p>Canada quietly annexed.</p>
-    <p>Every headline a wink.</p>
-    <p>Every outrage a stage.</p>
-    <p>What if the news was part of the game?</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="7s">This isn’t accidental.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Media doesn’t reflect. It loops.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Trump knows its rhythm.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Knows how to warp it.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Bend it.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Break it.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">So he rewrote the playbook.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">This is your map.</p>
-  </div>
-
-  <div class="slide">
-    <p>It’s not just fake news.</p>
-    <p>It’s engineered response.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="5s">From message → mechanics.</p>
-    <p class="typewriter-trigger" data-typewriter="5s">From truth → trigger.</p>
-    <p class="typewriter-trigger" data-typewriter="5s">From analysis → arousal.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="7s">QAnon wasn’t just fringe conspiracy.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">It was gameplay.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Clues. Players. Lore.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Watching became decoding.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Followers became performers.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="6s">Trump breaks the code.</p>
-    <p class="typewriter-trigger" data-typewriter="6s">Then rewrites it.</p>
-    <p class="typewriter-trigger" data-typewriter="6s">Tweets as triggers.</p>
-    <p class="typewriter-trigger" data-typewriter="6s">Reactions as script.</p>
-    <p class="typewriter-trigger" data-typewriter="6s">Repetition as control.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="5s">1. Trigger</p>
-    <p class="typewriter-trigger" data-typewriter="5s">2. Reaction</p>
-    <p class="typewriter-trigger" data-typewriter="5s">3. Reward</p>
-    <p class="typewriter-trigger" data-typewriter="5s">The loop resets.</p>
-  </div>
-
-  <div class="slide">
-    <p>You’re not being convinced.</p>
-    <p>You’re being conditioned.</p>
-  </div>
-
-  <div class="slide">
-    <p>Facts fractured.</p>
-    <p>Consensus collapsed.</p>
-    <p>Engagement wins.</p>
-    <p>Truth is optional.</p>
-    <p>Disinformation is necessary.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="7s">It spreads fast.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Campaigns. Corporates. Crises.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Engagement is the only metric.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Silence becomes suspect.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Participation becomes mandatory.</p>
-  </div>
-
-  <div class="slide">
-    <p>Monique de Haas studies media systems.</p>
-    <p>She reveals patterns, not politics.</p>
-  </div>
-
-  <div class="slide">
-    <p>You’re not asleep.</p>
-    <p>You’ve noticed the loop.</p>
-    <p>You’ve seen the score.</p>
-    <p>Now, want to see all of this game's structure?</p>
-    <p>Sign up for the next drop!</p>
-    <a href="#" style="color: magenta; font-weight: bold; text-decoration: underline;">Access: hptu.xyz</a>
-    <p>—M.</p>
-  </div>
-
-  <div class="slide shutdown">
-    <p>TRANSMISSION ENDED</p>
-    <p>Disengaging nodes █ █ █ █ █ █</p>
-    <p>System offline.</p>
-  </div>
-
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const lines = entry.target.querySelectorAll('.typewriter-trigger');
+        lines.forEach((el, index) => {
           const speed = el.dataset.typewriter;
+          el.style.animationDelay = `${index * 0.5}s`;
           el.classList.add(`typewriter-${speed}`);
-          observer.unobserve(el);
-        }
-      });
-    }, {
-      threshold: 0.6
+        });
+        observer.unobserve(entry.target);
+      }
     });
+  }, {
+    threshold: 0.6
+  });
 
-    document.querySelectorAll('.typewriter-trigger').forEach(el => {
-      observer.observe(el);
-    });
-  </script>
+  document.querySelectorAll('.slide').forEach(slide => {
+    if (slide.querySelector('.typewriter-trigger')) {
+      observer.observe(slide);
+    }
+  });
+</script>
+
 </body>
 </html>
