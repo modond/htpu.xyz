@@ -66,10 +66,13 @@
       color: #00ffcc;
     }
 
-    .typewriter {
+    .typewriter-trigger {
       overflow: hidden;
       white-space: nowrap;
       border-right: .15em solid magenta;
+    }
+
+    .typewriter-2s {
       animation: typing 2s steps(40, end), blink .75s step-end infinite;
     }
     .typewriter-5s {
@@ -145,7 +148,7 @@
   <div class="slide">
     <h2>OPERATION: HTPU // FILE 01</h2>
     <h3>CLASSIFIED BRIEFING – LEVEL: UNSECURED</h3>
-    <h1 class="typewriter">THIS IS NOT A BOOK LAUNCH.</h1>
+    <h1 class="typewriter-trigger" data-typewriter="2s">THIS IS NOT A BOOK LAUNCH.</h1>
     <p>Generated: 2025-04-01T04:21Z</p>
     <p>Node: HTPU-001</p>
     <p>—M.</p>
@@ -160,15 +163,15 @@
     <p>What if the news was part of the game?</p>
   </div>
 
-  <div class="slide typewriter-7s">
-    <p>This isn’t accidental.</p>
-    <p>Media doesn’t reflect. It loops.</p>
-    <p>Trump knows its rhythm.</p>
-    <p>Knows how to warp it.</p>
-    <p>Bend it.</p>
-    <p>Break it.</p>
-    <p>So he rewrote the playbook.</p>
-    <p>This is your map.</p>
+  <div class="slide">
+    <p class="typewriter-trigger" data-typewriter="7s">This isn’t accidental.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Media doesn’t reflect. It loops.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Trump knows its rhythm.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Knows how to warp it.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Bend it.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Break it.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">So he rewrote the playbook.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">This is your map.</p>
   </div>
 
   <div class="slide">
@@ -176,33 +179,33 @@
     <p>It’s engineered response.</p>
   </div>
 
-  <div class="slide typewriter-5s">
-    <p>From message → mechanics.</p>
-    <p>From truth → trigger.</p>
-    <p>From analysis → arousal.</p>
+  <div class="slide">
+    <p class="typewriter-trigger" data-typewriter="5s">From message → mechanics.</p>
+    <p class="typewriter-trigger" data-typewriter="5s">From truth → trigger.</p>
+    <p class="typewriter-trigger" data-typewriter="5s">From analysis → arousal.</p>
   </div>
 
-  <div class="slide typewriter-7s">
-    <p>QAnon wasn’t just fringe conspiracy.</p>
-    <p>It was gameplay.</p>
-    <p>Clues. Players. Lore.</p>
-    <p>Watching became decoding.</p>
-    <p>Followers became performers.</p>
+  <div class="slide">
+    <p class="typewriter-trigger" data-typewriter="7s">QAnon wasn’t just fringe conspiracy.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">It was gameplay.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Clues. Players. Lore.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Watching became decoding.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Followers became performers.</p>
   </div>
 
-  <div class="slide typewriter-6s">
-    <p>Trump breaks the code.</p>
-    <p>Then rewrites it.</p>
-    <p>Tweets as triggers.</p>
-    <p>Reactions as script.</p>
-    <p>Repetition as control.</p>
+  <div class="slide">
+    <p class="typewriter-trigger" data-typewriter="6s">Trump breaks the code.</p>
+    <p class="typewriter-trigger" data-typewriter="6s">Then rewrites it.</p>
+    <p class="typewriter-trigger" data-typewriter="6s">Tweets as triggers.</p>
+    <p class="typewriter-trigger" data-typewriter="6s">Reactions as script.</p>
+    <p class="typewriter-trigger" data-typewriter="6s">Repetition as control.</p>
   </div>
 
-  <div class="slide typewriter-5s">
-    <p>1. Trigger</p>
-    <p>2. Reaction</p>
-    <p>3. Reward</p>
-    <p>The loop resets.</p>
+  <div class="slide">
+    <p class="typewriter-trigger" data-typewriter="5s">1. Trigger</p>
+    <p class="typewriter-trigger" data-typewriter="5s">2. Reaction</p>
+    <p class="typewriter-trigger" data-typewriter="5s">3. Reward</p>
+    <p class="typewriter-trigger" data-typewriter="5s">The loop resets.</p>
   </div>
 
   <div class="slide">
@@ -218,12 +221,12 @@
     <p>Disinformation is necessary.</p>
   </div>
 
-  <div class="slide typewriter-7s">
-    <p>It spreads fast.</p>
-    <p>Campaigns. Corporates. Crises.</p>
-    <p>Engagement is the only metric.</p>
-    <p>Silence becomes suspect.</p>
-    <p>Participation becomes mandatory.</p>
+  <div class="slide">
+    <p class="typewriter-trigger" data-typewriter="7s">It spreads fast.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Campaigns. Corporates. Crises.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Engagement is the only metric.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Silence becomes suspect.</p>
+    <p class="typewriter-trigger" data-typewriter="7s">Participation becomes mandatory.</p>
   </div>
 
   <div class="slide">
@@ -246,5 +249,24 @@
     <p>Disengaging nodes █ █ █ █ █ █</p>
     <p>System offline.</p>
   </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const speed = el.dataset.typewriter;
+          el.classList.add(`typewriter-${speed}`);
+          observer.unobserve(el);
+        }
+      });
+    }, {
+      threshold: 0.6
+    });
+
+    document.querySelectorAll('.typewriter-trigger').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
