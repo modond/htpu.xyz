@@ -1,280 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTPU Briefing 001</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTPU | Human Terrain Predictive Unit</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: #ffffff;
-      font-family: 'Courier New', monospace;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      animation: flicker 3s alternate ease out;
-      position: relative;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f5f8fa;
+      color: #2c3e50;
     }
-
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 255, 204, 0.05),
-        rgba(0, 255, 204, 0.05) 1px,
-        transparent 1px,
-        transparent 2px
-      );
-      z-index: 1;
-      mix-blend-mode: overlay;
-      animation: scanlines 0.2s infinite linear;
-    }
-
-    @keyframes flicker {
-      0% { opacity: 1; }
-      50% { opacity: 0.85; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes scanlines {
-      0% { background-position: 0 0; }
-      100% { background-position: 0 2px; }
-    }
-
-    .slide {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    header {
+      background-color: #dbe5ec;
       padding: 2rem;
+      text-align: center;
     }
-
-    h1, h2, h3, p {
-      margin: 0.5rem 0;
-      font-family: 'Courier New', monospace;
-      color: #ffffff;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #1c2e40;
     }
-
-    .ibm {
-      font-family: 'IBM Plex Mono', monospace !important;
-      color: #00ffcc !important;
-      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+    header p.tagline {
+      font-style: italic;
+      color: #3b5160;
+      margin: 0.5rem 0 0;
     }
-
-    .visible {
-      opacity: 1;
+    main {
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
     }
-
-    .scroll-indicator {
-      margin-top: 3rem;
-      font-size: 1.5rem;
-      color: magenta;
-      animation: blinkScroll 1.2s infinite;
+    section.intro p {
+      margin-bottom: 1.5rem;
     }
-
-    @keyframes blinkScroll {
-      0%, 100% { opacity: 0; }
-      50% { opacity: 1; }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0 1rem;
     }
-
-    .glitch {
-      animation: glitch 0.3s ease-in-out 1;
+    nav a {
+      text-decoration: none;
+      color: #1c2e40;
+      font-weight: bold;
     }
-
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-5px, 2px); }
-      40% { transform: translate(5px, -2px); }
-      60% { transform: translate(-5px, 1px); }
-      80% { transform: translate(3px, -1px); }
-      100% { transform: translate(0); }
+    nav a:hover {
+      text-decoration: underline;
     }
-
-    img {
-      max-width: 90%;
-      height: auto;
-      border: 2px solid magenta;
-      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    footer {
+      background-color: #dbe5ec;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #5a6a78;
     }
   </style>
 </head>
 <body>
-  <audio id="boot-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-game-show-positive-sound-222.wav"></audio>
-  <audio id="shutdown-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-game-notification-212.wav"></audio>
+  <header>
+    <h1>Human Terrain Predictive Unit</h1>
+    <p class="tagline">High-trust solutions for uncertain environments.</p>
+  </header>
 
-    <div class="slide boot-up">
-    <p>BOOTING SYSTEM...</p>
-    <p>Loading: HTPU Ops Brief v1.0</p>
-    <p>Initializing nodes █ █ █ █ █ █</p>
-    <p>Success. Terminal ready.</p>
-    <div class="scroll-indicator">▼ scroll</div>
-  </div>
+  <main>
+    <section class="intro">
+      <p><strong>Behavioural Synthesis.</strong> <strong>Threat Alignment.</strong> <strong>Narrative Control.</strong></p>
+      <p>HTPU supports strategic environments with calibrated trust modelling and predictive engagement architectures. Our mission is to harmonize information flows through cognitive integration and perceptual guidance. </p>
+    </section>
 
-  <div class="slide" id="intro-slide">
-    <h2 class="ibm">OPERATION: HTPU // FILE 01</h2>
-    <h3 class="ibm">CLASSIFIED BRIEFING – LEVEL: UNSECURED</h3>
-    <h1 class="ibm">THIS IS NOT A BOOK LAUNCH.</h1>
-    <p class="ibm">Generated: 2025-04-01T04:21Z</p>
-    <p class="ibm">Node: HTPU-001</p>
-    <p class="ibm">—M.</p>
-    <div class="scroll-indicator">▼ scroll</div>
-  </div>
+    <nav>
+      <a href="/solutions">Solutions</a>
+      <a href="/research">Research</a>
+      <a href="/briefing001">Archived Memos</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </main>
 
-  <div class="slide">
-    <p>What if you couldn’t tell what was real anymore?</p>
-    <p>Gaza as luxury resort.</p>
-    <p>Canada quietly annexed.</p>
-    <p>Greenland for sale.</p>
-    <p>Every headline a wink.</p>
-    <p>Every outrage a stage.</p>
-    <p>What if the news was part of the game?</p>
-  </div>
-
-  <div class="slide">
-    <p>This isn’t accidental.</p>
-    <p>Media doesn’t reflect. It loops.</p>
-    <p>Trump knows its rhythm.</p>
-    <p>Knows how to plug it.</p>
-    <p>Play it.</p>
-    <p>Bend it.</p>
-    <p>Break it.</p>
-    <p>So he rewrote the playbook.</p>
-    <p>This is your map.</p>
-  </div>
-
-  <div class="slide">
-    <p>It’s not just fake news.</p>
-    <p>It’s engineered response.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="5s">From message → mechanics.</p>
-    <p class="typewriter-trigger" data-typewriter="5s">From truth → trigger.</p>
-    <p class="typewriter-trigger" data-typewriter="5s">From analysis → arousal.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="7s">QAnon wasn’t just fringe conspiracy.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">It was gameplay.</p>
-    <p class="typewriter-trigger ibm" data-typewriter="7s">Clues. Players. Lore.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Watching became decoding.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Followers became performers.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="6s">Trump breaks the code.</p>
-    <p class="typewriter-trigger" data-typewriter="6s">Then rewrites it.</p>
-    <p class="typewriter-trigger" data-typewriter="6s">Tweets as triggers.</p>
-    <p class="typewriter-trigger" data-typewriter="6s">Reactions as script.</p>
-    <p class="typewriter-trigger" data-typewriter="6s">Repetition as control.</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger ibm" data-typewriter="5s">1. Trigger</p>
-    <p class="typewriter-trigger ibm" data-typewriter="5s">2. Reaction</p>
-    <p class="typewriter-trigger ibm" data-typewriter="5s">3. Reward</p>
-    <p class="typewriter-trigger ibm" data-typewriter="5s">The loop resets.</p>
-  </div>
-
-  <div class="slide">
-    <p>You’re not being convinced.</p>
-    <p>You’re being conditioned.</p>
-  </div>
-
-  <div class="slide">
-    <p>Facts fracture.</p>
-    <p>Consensus collapses.</p>
-    <p>Engagement wins.</p>
-    <p>Truth becomes optional.</p>
-  </div>
-
- <div class="slide">
-    <p>Disinformation becomes strategy</p>
-    <p>Trumpism embraces it</p>
-    <p>Not despite the chaos</p>
-    <p>Because of it</p>
-    <p>For as QAnon framed it:</p>
-    <p> “Disinformation is necessary."</p>
-  </div>
-
-  <div class="slide">
-    <p class="typewriter-trigger" data-typewriter="7s">It spreads fast.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Campaigns. Corporates. Crises.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Engagement is the only metric.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Silence becomes suspect.</p>
-    <p class="typewriter-trigger" data-typewriter="7s">Participation becomes mandatory.</p>
-  </div>
-
-  <div class="slide">
-    <p>Monique de Haas studies media systems.</p>
-    <p>She will reveal the patterns of Trumpism</p>
-    <p>We need to understand the system first.</p>
-    <p>Before we even get to the politics.</p></p>
-  </div>
-
-  <div class="slide">
-    <p>You’ve been shown a peak behind the curtain.</p>
-    <p>You’ve noticed the loop.</p>
-    <p>You’ve seen the score.</p>
-    <p>Now, want to see how all of this plays out?</p>
-    <p>Sign up for the next drop! </p>
-    <a href="#" style="color: magenta; font-weight: bold; text-decoration: underline;">Access: hptu.xyz/signup</a>
-    <p>—M.</p>
-  </div>
-  
-  <div class="slide" id="end-slide">
-    <p class="ibm glitch">TRANSMISSION ENDED</p>
-    <p class="ibm glitch">Disengaging nodes █ █ █ █ █ █</p>
-    <p class="ibm glitch">System offline.</p>
-  </div>
-
-  <script>
-    const fadeObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll('p, h1, h2, h3').forEach(el => {
-            el.classList.add('visible');
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-
-    document.querySelectorAll('.slide').forEach(slide => {
-      fadeObserver.observe(slide);
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const bootSound = document.getElementById('boot-sound');
-      if (bootSound) bootSound.play().catch(() => {});
-    });
-
-    const endSlide = document.getElementById('end-slide');
-    if (endSlide) {
-      const endObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const shutdownSound = document.getElementById('shutdown-sound');
-            if (shutdownSound) shutdownSound.play().catch(() => {});
-            entry.target.classList.add('glitch');
-          }
-        });
-      }, { threshold: 0.6 });
-      endObserver.observe(endSlide);
-    }
-  </script>
+  <footer>
+    &copy; HTPU Human Terrain Predictive Unit. All insights reserved.
+  </footer>
 </body>
 </html>
