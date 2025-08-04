@@ -111,6 +111,37 @@
       box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
     }
   </style>
+  /* Simple consent banner */
+document.addEventListener('DOMContentLoaded', function () {
+  if (!localStorage.getItem('consentGiven')) {
+    const banner = document.createElement('div');
+    banner.innerHTML = `
+      <div style="position:fixed;bottom:0;width:100%;background:#000;color:#fff;padding:1em;text-align:center;z-index:9999;">
+        This site uses cookies for analytics via Google Analytics. Your data is shared with Google. See how at <a href="htpu.xyz/privacy">our privacy page</a> <button id="accept">Accept</button> <button id="reject">Only essential</button>
+      </div>`;
+    document.body.appendChild(banner);
+
+    document.getElementById('accept').onclick = function () {
+      localStorage.setItem('consentGiven', 'true');
+      document.body.removeChild(banner);
+      const gtagScript = document.createElement('script');
+      gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-8LE7BWYFDX";
+      gtagScript.async = true;
+      document.head.appendChild(gtagScript);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8LE7BWYFDX');
+    };
+
+    document.getElementById('reject').onclick = function () {
+      localStorage.setItem('consentGiven', 'false');
+      document.body.removeChild(banner);
+    };
+  }
+});
+
+  
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8LE7BWYFDX"></script>
 <script>
