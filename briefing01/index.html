@@ -110,19 +110,46 @@
       border: 2px solid magenta;
       box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
     }
+#consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  z-index: 9999;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+#consent-banner button {
+  margin: 0.5em;
+  padding: 0.5em 1em;
+}
+
+#consent-banner a {
+  color: #0ff;
+  display: block;
+  margin-top: 0.5em;
+}
+
+    
   </style>
  <!-- Consent Banner Script -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   if (!localStorage.getItem('consentGiven')) {
-    const banner = document.createElement('div');
-    banner.innerHTML = `
+    const consent-banner = document.createElement('div');
+    consent-banner.innerHTML = `
       <div style="position:fixed;bottom:0;width:100%;background:#000;color:#fff;padding:1em;text-align:center;z-index:9999;">
         This site uses cookies for analytics via Google Analytics. Your data is shared with Google. See how at 
         <a href="https://htpu.xyz/privacy" target="_blank" style="color:#0ff;">our privacy page</a>.
         <br><br>
-        <button id="accept">Accept</button> 
-        <button id="reject">Only essential</button>
+        <consent-banner button id="accept">Accept</button> 
+        <consent-banner button id="reject">Only essential</button>
       </div>`;
     document.body.appendChild(banner);
 
