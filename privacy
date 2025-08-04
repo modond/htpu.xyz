@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Privacy Statement – HTPU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 2rem auto;
+      max-width: 800px;
+      line-height: 1.6;
+      padding: 0 1rem;
+      color: #111;
+    }
+    h1, h2 {
+      color: #000;
+    }
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    button {
+      padding: 0.4rem 1rem;
+      border: 1px solid #ccc;
+      background: #f5f5f5;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e5e5e5;
+    }
+    .lang-section {
+      display: none;
+    }
+    .lang-section.active {
+      display: block;
+    }
+  </style>
+  <script>
+    function showLang(lang) {
+      document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+      document.getElementById(lang).classList.add('active');
+    }
+    window.onload = () => showLang('en');
+  </script>
+</head>
+<body>
+  <nav>
+    <button onclick="showLang('nl')">Nederlands</button>
+    <button onclick="showLang('en')">English</button>
+  </nav>
+
+  <section id="nl" class="lang-section">
+    <h1>Privacyverklaring – htpu.xyz</h1>
+    <p><strong>Laatst bijgewerkt: 4 augustus 2025</strong></p>
+    <p>Op deze pagina leggen we uit hoe wij omgaan met persoonsgegevens van bezoekers van htpu.xyz. We vinden privacy belangrijk en verzamelen alleen gegevens die nodig zijn om onze bezoekers beter te begrijpen, ons aanbod te verbeteren, en – waar gewenst – gerichte communicatie mogelijk te maken.</p>
+
+    <h2>1. Welke gegevens verzamelen wij?</h2>
+    <p>Wij verzamelen via Google Analytics en ons nieuwsbriefformulier (Brevo):</p>
+    <ul>
+      <li>Geanonimiseerd IP-adres</li>
+      <li>Bezochte pagina’s, tijdstip, apparaat</li>
+      <li>E-mailadres (alleen bij inschrijving)</li>
+    </ul>
+
+    <h2>2. Waarom?</h2>
+    <p>We gebruiken deze gegevens om inzicht te krijgen in interesse, ons aanbod te verbeteren, en gepersonaliseerd contact mogelijk te maken.</p>
+
+    <h2>3. Hoe?</h2>
+    <p>Via een cookiebanner vragen we toestemming voor Google Analytics. E-mailgegevens worden verwerkt via Brevo.</p>
+
+    <h2>4. Jouw rechten</h2>
+    <p>Je mag je gegevens inzien, aanpassen of laten verwijderen. Mail ons op <a href="mailto:info@htpu.xyz">info@htpu.xyz</a>.</p>
+
+    <h2>5. Cookies</h2>
+    <p>We plaatsen alleen analytics-cookies als je daar toestemming voor geeft.</p>
+  </section>
+
+  <section id="en" class="lang-section">
+    <h1>Privacy Statement – htpu.xyz</h1>
+    <p><strong>Last updated: August 4, 2025</strong></p>
+    <p>We care about your privacy. On this page, we explain how we handle personal data collected from visitors to htpu.xyz. We collect only the data we need to better understand our audience, improve our offerings, and provide relevant communication when appropriate.</p>
+
+    <h2>1. What data do we collect?</h2>
+    <p>Through Google Analytics and our Brevo signup form, we may collect:</p>
+    <ul>
+      <li>Anonymized IP address</li>
+      <li>Pages visited, time, device data</li>
+      <li>Email address (only if you sign up)</li>
+    </ul>
+
+    <h2>2. Why?</h2>
+    <p>We use this data to gain insight, improve our offerings, and enable personalized communication.</p>
+
+    <h2>3. How?</h2>
+    <p>We ask for cookie consent before using Google Analytics. Email data is handled through Brevo.</p>
+
+    <h2>4. Your rights</h2>
+    <p>You may request access, correction, or deletion of your data. Contact us at <a href="mailto:info@htpu.xyz">info@htpu.xyz</a>.</p>
+
+    <h2>5. Cookies</h2>
+    <p>Analytics cookies are only placed if you give consent.</p>
+  </section>
+</body>
+</html>
