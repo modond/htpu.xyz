@@ -142,14 +142,14 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   if (!localStorage.getItem('consentGiven')) {
-    const consent-banner = document.createElement('div');
-    consent-banner.innerHTML = `
+    const banner = document.createElement('div');
+    banner.innerHTML = `
       <div style="position:fixed;bottom:0;width:100%;background:#000;color:#fff;padding:1em;text-align:center;z-index:9999;">
         This site uses cookies for analytics via Google Analytics. Your data is shared with Google. See how at 
         <a href="https://htpu.xyz/privacy" target="_blank" style="color:#0ff;">our privacy page</a>.
         <br><br>
-        <consent-banner button id="accept">Accept</button> 
-        <consent-banner button id="reject">Only essential</button>
+        <button id="accept">Accept</button> 
+        <button id="reject">Only essential</button>
       </div>`;
     document.body.appendChild(banner);
 
