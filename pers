@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTPU | Media Briefing</title>
+  <title>HTPU | Pers Briefing</title>
   <style>
     body {
       margin: 0;
@@ -55,7 +55,7 @@
 </head>
 <body>
   <header>
-    <h1>Media Briefing</h1>
+    <h1>Pers Briefing</h1>
     <p class="tagline">Voor redacties, interviewers en nieuwsgierige mediamakers</p>
   </header>
 
