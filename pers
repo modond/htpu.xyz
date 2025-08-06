@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTPU | Media Briefing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f5f8fa;
+      color: #2c3e50;
+    }
+    header {
+      background-color: #dbe5ec;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #1c2e40;
+    }
+    header p.tagline {
+      font-style: italic;
+      color: #3b5160;
+      margin: 0.5rem 0 0;
+    }
+    main {
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #1c2e40;
+      margin-top: 2rem;
+    }
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+    footer {
+      background-color: #dbe5ec;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #5a6a78;
+    }
+    a {
+      color: #1c2e40;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Media Briefing</h1>
+    <p class="tagline">Voor redacties, interviewers en nieuwsgierige mediamakers</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Wat is dit boek?</h2>
+      <p><strong>How Trump Plays Us</strong> is geen biografie en geen pamflet. Het is een dissectie van het politieke spel — en hoe wij allemaal bespeeld worden. Het boek laat zien hoe Trump werkt als gamemaster, hoe QAnon functioneert als Alternate Reality Game, en waarom engagement sterker werkt dan waarheid.</p>
+    </section>
+
+    <section>
+      <h2>Waarom nu?</h2>
+      <p>In de nasleep van 2024 zien we steeds duidelijker hoe spanning, narratief en digitale structuren politieke macht genereren. Dit boek helpt om de onderlaag van Trumpism te begrijpen, voorbij het circus. Juist nu.</p>
+    </section>
+
+    <section>
+      <h2>Wat kun je ermee als redactie?</h2>
+      <ul>
+        <li><strong>Interview:</strong> over gamificatie, macht, waarheid en perceptie</li>
+        <li><strong>Quiz:</strong> "Word jij bespeeld?" – als online interactief format</li>
+        <li><strong>Longread:</strong> over QAnon als Alternate Reality Game</li>
+        <li><strong>Analyse:</strong> waarom feiten het niet winnen van spanning</li>
+        <li><strong>Talkshow-item:</strong> live ontmaskeren wie "in het spel" zit</li>
+        <li><strong>Creative collab:</strong> werk samen met designers of AI om het verhaal visueel te vangen</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Downloads & contact</h2>
+      <ul>
+        <li><a href="https://htpu.xyz/briefing01">📄 Media briefing PDF</a></li>
+        <li><a href="https://styler.nl">📕 Bestel het boek hier</a></li>
+        <li>📬 Contact: <a href="mailto:m@htpu.xyz">m@htpu.xyz</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; HTPU Human Terrain Predictive Unit. Alle rechten voorbehouden.
+  </footer>
+</body>
+</html>
