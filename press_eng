@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTPU | Press Kit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f5f8fa;
+      color: #2c3e50;
+    }
+    header {
+      background-color: #dbe5ec;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #1c2e40;
+    }
+    header p.tagline {
+      font-style: italic;
+      color: #3b5160;
+      margin: 0.5rem 0 0;
+    }
+    main {
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+    h2 {
+      color: #1c2e40;
+      margin-top: 2rem;
+    }
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+    footer {
+      background-color: #dbe5ec;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #5a6a78;
+    }
+    a {
+      color: #1c2e40;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Media Briefing</h1>
+    <p class="tagline">For editors, interviewers, and curious media makers</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is this book?</h2>
+      <p><strong>How Trump Plays Us</strong> is not a biography, and not a manifesto. It’s a dissection of the political game — and how all of us are being played. The book reveals Trump as a gamemaster, QAnon as an alternate reality game, and why engagement often trumps truth.</p>
+    </section>
+
+    <section>
+      <h2>Why now?</h2>
+      <p>As you no doubt see for yourself, it’s not facts that hit hardest — it’s the form, the tension, the algorithm. In 2025, this dynamic has only intensified: Trump doesn’t just play the field, he <strong>is</strong> the field. This book takes you below the circus, beyond the soundbites.</p>
+    </section>
+
+    <section>
+      <h2>What can you do with it as media?</h2>
+      <ul>
+        <li><strong>Interview:</strong> Gamification, power, truth and perception</li>
+        <li><strong>Quiz format:</strong> "Are you being played?" – online or print</li>
+        <li><strong>Longread:</strong> QAnon as an Alternate Reality Game</li>
+        <li><strong>Analysis:</strong> Why facts lose to engagement</li>
+        <li><strong>Creative collab:</strong> Data designers to visualise the story</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Downloads & contact</h2>
+      <ul>
+        <li><a href="https://drive.google.com/drive/u/1/folders/1K2Xd05B0jhBOtcTzHK6G6xINOMoymuY2">📄 presskit with downloads </a></li>
+        <li><a href="https://htpu.xyz/briefing01">📄 Media campaign</a></li>
+        <li><a href="https://styler.nl">📕 Order the book here</a></li>
+        <li>📬 Contact: <a href="mailto:monique@alphaleporis.nl">monique@alphaleporis.nl</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; HTPU Human Terrain Predictive Unit. All rights reserved.
+  </footer>
+</body>
+</html>
