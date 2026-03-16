@@ -3,122 +3,281 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTPU | Human Terrain Predictive Unit</title>
+  <title>HTPU Briefing 001</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #f5f8fa;
-      color: #2c3e50;
+      padding: 0;
+      background-color: #000;
+      color: #ffffff;
+      font-family: 'Courier New', monospace;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      animation: flicker 3s alternate ease out;
+      position: relative;
+      height: 100%;
     }
-    header {
-      background-color: #dbe5ec;
-      padding: 2rem;
-      text-align: center;
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(to bottom, rgba(0, 255, 204, 0.05), rgba(0, 255, 204, 0.05) 1px, transparent 1px, transparent 2px);
+      z-index: 1;
+      mix-blend-mode: overlay;
+      animation: scanlines 0.2s infinite linear;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      color: #1c2e40;
-    }
-    header p.tagline {
-      font-style: italic;
-      color: #3b5160;
-      margin: 0.5rem 0 0;
-    }
-    main {
-      padding: 3rem 2rem;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
-    section.intro p {
-      margin-bottom: 1.5rem;
-    }
-    nav {
+
+    .slide {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 2rem;
-      margin: 3rem 0 1rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #1c2e40;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      background-color: #dbe5ec;
+      align-items: center;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #5a6a78;
+      padding: 2rem;
+    }
+
+    h1, h2, h3, p {
+      margin: 0.5rem 0;
+      font-family: 'Courier New', monospace;
+      color: #ffffff;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .ibm {
+      font-family: 'IBM Plex Mono', monospace !important;
+      color: #00ffcc !important;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    .scroll-indicator {
+      margin-top: 3rem;
+      font-size: 1.5rem;
+      color: magenta;
+      animation: blinkScroll 1.2s infinite;
+    }
+
+    @keyframes blinkScroll {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.85; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes scanlines {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 2px; }
+    }
+
+    .glitch {
+      animation: glitch 0.3s ease-in-out 1;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-5px, 2px); }
+      40% { transform: translate(5px, -2px); }
+      60% { transform: translate(-5px, 1px); }
+      80% { transform: translate(3px, -1px); }
+      100% { transform: translate(0); }
+    }
+
+    img {
+      max-width: 90%;
+      height: auto;
+      border: 2px solid magenta;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    }
+    #consent-gate {
+      position: fixed;
+      z-index: 10000;
+      background: #000;
+      color: #fff;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2em;
+      box-sizing: border-box;
+    }
+
+    #consent-gate h1 {
+      font-size: 1.5rem;
+      color: #0ff;
+      margin-bottom: 1rem;
+    }
+
+    #consent-gate p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 90%;
+      line-height: 1.4;
+    }
+
+    #consent-gate button {
+      padding: 0.75em 1.5em;
+      font-size: 1rem;
+      background: #111;
+      border: 1px solid #0ff;
+      color: #0ff;
+      cursor: pointer;
+    }
+
+    #briefing-content {
+      display: none;
     }
   </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8LE7BWYFDX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const gate = document.getElementById('consent-gate');
+      const content = document.getElementById('briefing-content');
 
-  gtag('config', 'G-8LE7BWYFDX');
-</script>
+      if (localStorage.getItem('consentGiven') === 'true') {
+        gate.style.display = 'none';
+        content.style.display = 'block';
+        loadGA();
+      }
+
+      document.getElementById('accept-consent').onclick = function () {
+        localStorage.setItem('consentGiven', 'true');
+        gate.style.display = 'none';
+        content.style.display = 'block';
+        loadGA();
+      };
+
+      function loadGA() {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-8LE7BWYFDX";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        const inlineScript = document.createElement('script');
+        inlineScript.innerHTML = `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8LE7BWYFDX');
+        `;
+        document.head.appendChild(inlineScript);
+      }
+    });
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Human Terrain Predictive Unit</h1>
-    <p class="tagline">High-trust solutions for uncertain environments.</p>
-  </header>
+  <div id="consent-gate">
+    <h1>Want to see the briefing?</h1>
+    <p>This site uses cookies for analytics via Google Analytics. Your data may be shared with Google.</p>
+    <button id="accept-consent">To proceed you need to eat the &#x1F36A;</button>
+  </div>
 
-  <main>
-    <section class="intro">
-      <p><strong>Behavioural Synthesis.</strong> <strong>Threat Alignment.</strong> <strong>Narrative Control.</strong></p>
-      <p>The Human Terrain Predictive Unit operates at the intersection of influence design and perception management. By mapping trust signals and calibrating engagement flow, we provide clients with actionable models to navigate instability, ambiguity, and narrative saturation. </p>
-    </section>
+  <div id="briefing-content">
+    <audio id="boot-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-game-show-positive-sound-222.wav"></audio>
+    <audio id="shutdown-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-game-notification-212.wav"></audio>
 
-    <nav>
-      <a href="/solutions">Solutions</a>
-      <a href="/research">Research</a>
-      <a href="/briefing01">Archived Memos</a>
-      <a href="/contact">Contact</a>
-    </nav>
-    
-    <section id="mission">
-      <h2>Mission</h2>
-      <p><tagline>To enable perceptual alignment in volatile environments through dynamic trust modelling, feedback calibration, and strategic signal integration. We deliver frameworks that anticipate narrative drift, manage influence saturation, and support the operational continuity of belief-driven systems.</tagline></p>
-    </section>
+    <div class="slide boot-up">
+      <p>BOOTING SYSTEM...</p>
+      <p>Loading: HTPU Ops Brief v1.0</p>
+      <p>Initializing nodes █ █ █ █ █ █</p>
+      <p>Success. Terminal ready.</p>
+      <div class="scroll-indicator">▼ scroll</div>
+    </div>
 
-    <section id="vision">
-      <h2>Vision</h2>
-      <p><tagline>We envision a world in which informational coherence is not a condition, but a capability — one that can be modeled, rehearsed, and redeployed across symbolic terrains. HTPU seeks to embed reflexive alignment strategies at every point of narrative contact, empowering clients to navigate uncertainty with structured ambiguity and calibrated confidence.</tagline></p>
-    </section>
+    <div class="slide">
+      <p>What if you couldn’t tell what was real anymore?</p>
+      <p>Gaza as luxury resort.</p>
+      <p>Canada quietly annexed.</p>
+      <p>Greenland for sale.</p>
+      <p>Every headline a wink.</p>
+      <p>Every outrage a stage.</p>
+      <p>What if the news was part of the game?</p>
+      <div class="scroll-indicator">▼ scroll</div>
+    </div>
 
-    <section id="solutions">
-      <h2>Solutions</h2>
-      <p>We design modular trust frameworks and narrative matrices that support decision-making under uncertainty. Our solutions integrate perceptual modeling with behavioural telemetry and reflexive information structures.</p>
-    </section>
+    <div class="slide">
+      <p>You’re not being convinced.</p>
+      <p>You’re being conditioned.</p>
+      <div class="scroll-indicator">▼ scroll</div>
+    </div>
 
-    <section id="research">
-      <h2>Research</h2>
-      <p>HTPU conducts longitudinal analysis of perception loops, strategic dissonance frameworks, and crowd cognitive bias modeling. Our researchers collaborate across institutional and informal domains to anticipate threat topologies.</p>
-    </section>
-    
-    <section id="briefing001">
-      <h2>Briefing01</h2>
-      <p>Restricted Access for selected declassified materials from prior operational phases. Outlines for Engagement Loops and embedded triggers discovered in early simulation layers.</p>
-    </section>
+    <div class="slide">
+      <p>Facts fracture.</p>
+      <p>Consensus collapses.</p>
+      <p>Engagement wins.</p>
+      <p>Truth becomes optional.</p>
+      <div class="scroll-indicator">▼ scroll</div>
+    </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>For credentialed access requests or narrative clearance inquiries, send secure correspondence to <a href="mailto:m@htpu.xyz">m@htpu.xyz</a>. Signal & Threema IDs are provided via internal exchange protocols.</p>
-    </section>
-  </main>
+    <div class="slide">
+      <p>When the hero becomes the villain the game glitches</p>
+      <p>Want to know how deep it goes?..</p>
+      <a href="https://styler.nl" style="color: magenta; font-weight: bold; text-decoration: underline;">
+        Access: your gameguide
+      </a>
+      <p>—M.</p>
+    </div>
 
-  <footer>
-    &copy; HTPU Human Terrain Predictive Unit. All insights reserved.
-  </footer>
+    <div class="slide" id="end-slide">
+      <p class="ibm glitch">TRANSMISSION ENDED</p>
+      <p class="ibm glitch">Disengaging nodes █ █ █ █ █ █</p>
+      <p class="ibm glitch">System offline.</p>
+    </div>
+  </div>
+
+  <script>
+    const fadeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('p, h1, h2, h3').forEach(el => {
+            el.classList.add('visible');
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.slide').forEach(slide => {
+      fadeObserver.observe(slide);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const bootSound = document.getElementById('boot-sound');
+      if (bootSound) bootSound.play().catch(() => {});
+    });
+
+    const endSlide = document.getElementById('end-slide');
+    if (endSlide) {
+      const endObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const shutdownSound = document.getElementById('shutdown-sound');
+            if (shutdownSound) shutdownSound.play().catch(() => {});
+            entry.target.classList.add('glitch');
+          }
+        });
+      }, { threshold: 0.6 });
+      endObserver.observe(endSlide);
+    }
+  </script>
 </body>
 </html>
